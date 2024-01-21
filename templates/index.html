@@ -26,10 +26,19 @@
                 </li>
             {% endfor %}
         </ul>
-    {% else %}
-        {% if query %}
-            <p>No results found for '{{ query }}'.</p>
-        {% endif %}
+    {% elif query %}
+        <p>No results found for '{{ query }}'.</p>
+    {% endif %}
+
+    {% if not results and not query %}
+        <div class="fun-facts">
+            <h3>Book Facts:</h3>
+            <ul>
+                {% for fact in fun_facts %}
+                    <li>{{ fact }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endif %}
 </body>
 </html>
